@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
 	}, {});
 	
 	Brand.associate = function(models) {
-		// associations can be defined here
+		models.Brand.hasMany(models.Voiture);
 	};
 	return Brand;
 };
