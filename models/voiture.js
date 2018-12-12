@@ -8,7 +8,13 @@ module.exports = (sequelize, DataTypes) => {
     fuel: DataTypes.STRING
   }, {});
   Voiture.associate = function(models) {
-    // associations can be defined here
+    models.Voiture.belongsTo(models.Brand, {
+      as: 'brand',
+      onDelete: "CASCADE",
+      foreignKey: {
+        allowNull: false
+      }
+    });
   };
   return Voiture;
 };
