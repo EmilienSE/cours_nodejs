@@ -3,8 +3,13 @@
   <head>
     <title>{{ title }}</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
   </head>
   <body>
-    {% block body %}{% endblock %}
+  	<a class="btn btn-secondary" href="/voiture">Retour</a>
+  	<div class="container">
+   		{% block body %}{% endblock %}
+	</div>
   </body>
 </html>

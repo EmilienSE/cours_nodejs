@@ -75,4 +75,53 @@ router.post('/add/ok', function(req, res){
 	res.redirect('/');
 });
 
+
+router.get('/:id/edit', function(req, res){
+	models
+		.Voiture
+		.findOne({
+			where: {id: req.params.id},
+			include: ['brand']
+		})
+		.then(car => {
+			models
+				.Brand
+				.findAll()
+				.then(brand => {
+					res.render('voitures/edit', {
+						car: car,
+						brands: brand
+					});
+				})
+		});
+});
+
+router.post('/:id/edit/ok', function(req, res){
+	models
+		.Voiture
+		.update({
+			name: req.body.name,
+			engine: req.body.engine,
+			color: req.body.color,
+			model: req.body.model,
+			fuel: req.body.fuel,
+			createdAt: '2018-12-12 08:40:19',
+			updatedAt: '2018-12-12 14:30:38',
+			brandId: req.body.brandId,
+		},
+		{
+			where: {id: req.params.id},
+		});
+		res.redirect('/');
+});
+
+router.get('/:id/delete', function(req, res){
+	models
+		.Voiture
+		.destroy({
+			where: {id: req.params.id}
+	});
+	res.redirect('/voiture/');
+});
+
 module.exports = router;

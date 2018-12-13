@@ -1,0 +1,18 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+  <h1>Editer la voiture {{ car.name }}</h1>
+  <form method="post" action="/voiture/{{ car.id }}/edit/ok/">
+    <input type="text" name="name" id="name" value="{{ car.name }}">
+    <input type="text" name="engine" id="engine" value="{{ car.engine }}">
+    <input type="text" name="color" id="color" value="{{ car.color }}">
+    <input type="text" name="model" id="model" value="{{ car.model }}">
+    <input type="text" name="fuel" id="fuel" value="{{ car.fuel }}">
+    <select name="brandId" id="brandId">
+    	{% for brand in brands %}
+			<option value="{{ brand.id }}" {% if brand.id == car.brandId %} selected {% endif %}>{{ brand.name }}</option>
+    	{% endfor %}
+    </select>
+    <input type="submit">
+  </form>
+{% endblock %}

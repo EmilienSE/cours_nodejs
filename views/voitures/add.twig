@@ -2,17 +2,36 @@
 
 {% block body %}
   <h1>Ajouter une voiture</h1>
-  <form method="post" action="/voiture/add/ok/">
-    <input type="text" name="name" id="name" placeholder="Ex: CLK">
-    <input type="text" name="engine" id="engine" placeholder="Ex: 200">
-    <input type="text" name="color" id="color" placeholder="Ex: BLUE">
-    <input type="text" name="model" id="model" placeholder="Ex: CABRIOLET">
-    <input type="text" name="fuel" id="fuel" placeholder="Ex: E85">
-    <select name="brandId" id="brandId">
-    	{% for id in brand %}
-			<option value="{{ id.id }}">{{ id.name }}</option>
-    	{% endfor %}
-    </select>
-    <input type="submit">
+  <form method="post" action="/voiture/add/ok/" class="shadow-lg p-3 mb-5 bg-white rounded">
+  	<div class="form-group">
+  		<label for="name">Nom: </label>
+		<input class="form-control" type="text" name="name" id="name" placeholder="Ex: CLK">
+	</div>
+	<div class="form-group">
+		<label for="engine">Motorisation: </label>
+		<input class="form-control" type="text" name="engine" id="engine" placeholder="Ex: 200">
+	</div>
+	<div class="form-group">
+		<label for="color">Couleur: </label>
+		<input class="form-control" type="text" name="color" id="color" placeholder="Ex: BLUE">
+	</div>
+	<div class="form-group">
+		<label for="model">Modèle: </label>
+		<input class="form-control" type="text" name="model" id="model" placeholder="Ex: CABRIOLET">
+	</div>
+	<div class="form-group">
+		<label for="fuel">Carburant: </label>
+		<input class="form-control" type="text" name="fuel" id="fuel" placeholder="Ex: E85">
+	</div>
+	<div class="form-group">
+		<label for="brandId">Marque: </label>
+		<select name="brandId" id="brandId" class="form-control">
+			{% for id in brand %}
+				<option value="{{ id.id }}">{{ id.name }}</option>
+			{% endfor %}
+		</select>
+	</div>
+		<button type="submit" class="btn btn-primary">Ajouter</button>
+	</div>
   </form>
 {% endblock %}

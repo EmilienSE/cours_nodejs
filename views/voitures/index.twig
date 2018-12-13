@@ -2,11 +2,13 @@
 
 {% block body %}
 	<h1>Liste des voitures</h1>
-	<table class="table">
+	<table class="table table-ligh shadow-lg p-3 mb-5 bg-white rounded">
 		<thead>
 			<th>Nom</th>
 			<th>Fuel</th>
 			<th>Marque</th>
+			<th></th>
+			<th></th>
 			<th></th>
 		</thead>
 		<tbody>
@@ -15,11 +17,13 @@
 				<td>{{ car.name }}</td>
 				<td>{{ car.fuel }}</td>
 				<td>{{ car.brand.name }}</td>
-				<td><a href="/voiture/{{ car.id }}/view">Voir</a></td>
+				<td><a href="/voiture/{{ car.id }}/view"><i class="far fa-eye"></i></a></td>
+				<td><a href="/voiture/{{ car.id }}/edit"><i class="far fa-edit"></i></a></td>
+				<td><a href="/voiture/{{ car.id }}/delete"><i class="far fa-trash-alt"></i></a></td>
 			</tr>
 			{% endfor %}
 		</tbody>
 	</table>
-	<a href="voiture/brand/add">Ajouter une marque</a>
-	<a href="/voiture/add">Ajouter une voiture</a>
+	<a class="btn btn-primary" href="/voiture/brand/add">Ajouter une marque</a>
+	<a class="btn btn-primary" href="/voiture/add">Ajouter une voiture</a>
 {% endblock %}
