@@ -48,16 +48,29 @@ router.post('/brand/add/ok', function(req, res){
 });
 
 router.get('/add', function(req, res){
-	res.render('voitures/add');
+	models
+		.Brand
+		.findAll()
+		.then(brand => {
+			console.log(brand);
+			res.render('voitures/add', {
+				brand : brand
+			});
+		});
 });
 
 router.post('/add/ok', function(req, res){
 	models
-		.Brand
+		.Voiture
 		.create({
-			name: req.body.marque,
+			name: req.body.name,
+			engine: req.body.engine,
+			color: req.body.color,
+			model: req.body.model,
+			fuel: req.body.fuel,
 			createdAt: '2018-12-12 08:40:19',
-			updatedAt: '2018-12-12 14:30:38'
+			updatedAt: '2018-12-12 14:30:38',
+			brandId: req.body.brandId,
 	});
 	res.redirect('/');
 });

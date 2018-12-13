@@ -8,6 +8,11 @@
     <input type="text" name="color" id="color" placeholder="Ex: BLUE">
     <input type="text" name="model" id="model" placeholder="Ex: CABRIOLET">
     <input type="text" name="fuel" id="fuel" placeholder="Ex: E85">
+    <select name="brandId" id="brandId">
+    	{% for id in brand %}
+			<option value="{{ id.id }}">{{ id.name }}</option>
+    	{% endfor %}
+    </select>
     <input type="submit">
   </form>
 {% endblock %}
