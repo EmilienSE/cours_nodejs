@@ -1,0 +1,13 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+  <h1>Ajouter une voiture</h1>
+  <form method="post" action="/voiture/add/ok/">
+    <input type="text" name="name" id="name" placeholder="Ex: CLK">
+    <input type="text" name="engine" id="engine" placeholder="Ex: 200">
+    <input type="text" name="color" id="color" placeholder="Ex: BLUE">
+    <input type="text" name="model" id="model" placeholder="Ex: CABRIOLET">
+    <input type="text" name="fuel" id="fuel" placeholder="Ex: E85">
+    <input type="submit">
+  </form>
+{% endblock %}

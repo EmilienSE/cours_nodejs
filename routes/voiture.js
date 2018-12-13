@@ -37,7 +37,21 @@ router.get('/brand/add', function(req, res, next){
 });
 
 router.post('/brand/add/ok', function(req, res){
-	console.log(req.body);
+	models
+		.Brand
+		.create({
+			name: req.body.marque,
+			createdAt: '2018-12-12 08:40:19',
+			updatedAt: '2018-12-12 14:30:38'
+	});
+	res.redirect('/');
+});
+
+router.get('/add', function(req, res){
+	res.render('voitures/add');
+});
+
+router.post('/add/ok', function(req, res){
 	models
 		.Brand
 		.create({
