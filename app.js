@@ -3,12 +3,28 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const session = require('express-session');
+
+let sess = {
+	maxAge: 86400,
+	secret: 'tata',
+	name: 'express_session_cookie',
+	proxy: true,
+	resave: true,
+	saveUninitialized: true
+};
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const voitureRouter = require('./routes/voiture');
+const loginRouter = require('./routes/login');
 
 const app = express();
+
+app.use('/users', usersRouter);
+app.use('/users/login', loginRouter);
+
+app.use(session(sess));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -18,6 +34,9 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+const passport = require('passport');
+app.use(passport.initialize());
+app.use(passport.session(sess));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
