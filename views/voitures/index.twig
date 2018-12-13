@@ -1,6 +1,25 @@
 {% extends 'layout.twig' %}
 
 {% block body %}
-  <h1>{{title}}</h1>
-  <p>Welcome to {{title}}, {{name}} !</p>
+	<h1>Liste des voitures</h1>
+	<table class="table">
+		<thead>
+			<th>Nom</th>
+			<th>Fuel</th>
+			<th>Marque</th>
+			<th></th>
+		</thead>
+		<tbody>
+			{% for car in cars %}
+			<tr>
+				<td>{{ car.name }}</td>
+				<td>{{ car.fuel }}</td>
+				<td>{{ car.brand.name }}</td>
+				<td><a href="/voiture/{{ car.id }}/view">Voir</a></td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<a href="voiture/brand/add">Ajouter une marque</a>
+	<a href="/voiture/add"
 {% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+  <h1>Voiture {{ car.name }}</h1>
+  <table class="table">
+    <thead>
+      <th>Nom</th>
+      <th>Fuel</th>
+      <th>Moteur</th>
+      <th>Couleur</th>
+      <th>Modèle</th>
+      <th>Marque</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ car.name }}</td>
+        <td>{{ car.fuel }}</td>
+        <td>{{ car.engine }}</td>
+        <td>{{ car.color }}</td>
+        <td>{{ car.model }}</td>
+        <td>{{ car.brand.name }}</td>
+      </tr>
+    </tbody>
+  </table>
+{% endblock %}
