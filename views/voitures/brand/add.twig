@@ -2,8 +2,11 @@
 
 {% block body %}
   <h1>Ajouter une marque</h1>
-  <form method="post" action="/voiture/brand/add/ok/">
-    <input type="text" name="marque" id="marque" placeholder="Ex: TAUDI">
-    <input type="submit">
+  <form method="post" action="/voiture/brand/add/ok/" class="shadow-lg p-3 mb-5 bg-white rounded">
+  	<div class="form-group">
+  		<label for="marque">Nom de la marque: </label>
+    	<input type="text" name="marque" id="marque" placeholder="Ex: TAUDI" class="form-control">
+  	</div>
+    <input type="submit" class="btn btn-primary">
   </form>
 {% endblock %}
